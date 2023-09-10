@@ -86,12 +86,18 @@ function generatePassword () {
       alert(`Please select at least one type of digit that you would like your password to have.\nYou'll go through all the options again.`)
     };
   
-  }      
+  };   
 
-  // based on the chosen length assign randomly how many digits will be given to each category 
-  // save each value in it's own variable
+  var passwordArray = [];
 
-  // build password
+   // build password
+  for (var x = passwordCriteria.numberOfDigits; x > 0; x--){
+    var index = Math.floor(Math.random() * chosenCriteria.length);
+    var index2 = Math.floor(Math.random() * chosenCriteria[index].length);
+    passwordArray.push(chosenCriteria[index][index2]);
+  }
+  var passwordString = passwordArray.join(``);
+  return passwordString;
 };
 
 // Write password to the #password input
