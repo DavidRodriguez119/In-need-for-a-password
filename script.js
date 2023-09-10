@@ -23,8 +23,6 @@ var uppercaseOptions = uppercaseOpString.split(``);
 var numericOptions = numericOpString.split(``);
 var specialCharactersOptions = specialCharactersOpString.split(``);
 
-
-
 // Function for the user to select the critiria that they want for their password
 function generatePassword () {
 
@@ -48,11 +46,48 @@ function generatePassword () {
     };
   };
 
-  // ask the user if the password should include lowercase letters (confirm)
-  // ask the user if the password should include uppercase letters (confirm)
-  // ask the user if the password should include numbers (confirm)
-  // ask the user if the password should include special characters (confirm)
+  var chosenCriteria = []
+  var criteriaPicked = 0
+
+  while (criteriaPicked === 0){
+
+    // ask the user if the password should include lowercase letters (confirm)
+    passwordCriteria.lowercase = confirm(`Would you like your password to have lowercase letters?`);
+    if (passwordCriteria.lowercase === true){
+      chosenCriteria.push(lowercaseOptions);
+    }
+
+    // ask the user if the password should include uppercase letters (confirm)
+    passwordCriteria.uppercase = confirm(`Would you like your password to have uppercase letters?`);
+    if (passwordCriteria.uppercase === true){
+      chosenCriteria.push(uppercaseOptions);
+    };
+
+    // ask the user if the password should include numbers (confirm)
+    passwordCriteria.numeric = confirm(`Would you like your password to have numbers?`);
+    if (passwordCriteria.numeric === true){
+      chosenCriteria.push(numericOptions);
+    };
+
+    // ask the user if the password should include special characters (confirm)
+    passwordCriteria.specialCharacters = confirm(`Would you like your password to have special characters?`);
+    if (passwordCriteria.specialCharacters === true){
+      chosenCriteria.push(specialCharactersOptions);
+    };
+    
+    // Count how many categories were picked by the user 
+    for (let key in passwordCriteria){
+      if (passwordCriteria[key] === true){
+        criteriaPicked++;
+      }
+    };  
+
+    if (criteriaPicked === 0){
+      alert(`Please select at least one type of digit that you would like your password to have.\nYou'll go through all the options again.`)
+    };
   
+  }      
+
   // based on the chosen length assign randomly how many digits will be given to each category 
   // save each value in it's own variable
 
