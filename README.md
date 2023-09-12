@@ -24,10 +24,10 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
 ## Screenshot of Deployed Website:
-
+![Screenshot of the running APP](assets/Screenshot_running_app.png)
 
 ## Link to Deployed Website
-
+https://davidrodriguez119.github.io/In-need-for-a-password/
 
 ## Technologies
 
